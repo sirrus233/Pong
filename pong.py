@@ -29,6 +29,7 @@ class Velocity:
 class Ball(GameObject):
     def __init__(self):
         self.velocity = Velocity()
+        self.acceleration = 0
         self.sprite = pyglet.sprite.Sprite(AssetManager.textures["BALL"], batch=batch)
     
     def update(self, dt):
@@ -37,6 +38,7 @@ class Ball(GameObject):
 
         if self.collision(left_paddle) or self.collision(right_paddle):
             self.velocity.direction = -self.velocity.direction + math.pi
+            self.velocity.speed += self.acceleration
 
         x = self.x + self.velocity.speed * math.cos(self.velocity.direction) 
         y = self.y + self.velocity.speed * math.sin(self.velocity.direction) 
@@ -104,6 +106,7 @@ def main():
     ball.set_position(window.width//2, window.height//2)
     ball.velocity.speed = 5
     ball.velocity.direction = math.pi/4
+    ball.acceleration = 1
     
     paddle_offset = 20
     left_paddle.set_position(paddle_offset, window.height//2)
