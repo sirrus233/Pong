@@ -33,7 +33,10 @@ class Ball(GameObject):
     
     def update(self, dt):
         if self.collision(top_wall) or self.collision(bottom_wall):
-            self.velocity.direction += math.pi
+            self.velocity.direction = -self.velocity.direction
+
+        if self.collision(left_paddle) or self.collision(right_paddle):
+            self.velocity.direction = -self.velocity.direction + math.pi
 
         x = self.x + self.velocity.speed * math.cos(self.velocity.direction) 
         y = self.y + self.velocity.speed * math.sin(self.velocity.direction) 
