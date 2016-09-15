@@ -75,7 +75,6 @@ class AssetManager:
 # Window and game setup
 window = pyglet.window.Window(width=1024, height=768)
 keys = key.KeyStateHandler()
-window.push_handlers(keys)
 batch = pyglet.graphics.Batch()
 AssetManager.load()
 
@@ -96,6 +95,8 @@ def on_key_press(symbol, modifiers):
     if symbol == key.ESCAPE:
         pyglet.app.exit()
     
+window.push_handlers(keys)
+
 def main():
     ball.set_position(window.width//2, window.height//2)
     ball.velocity.speed = 5
