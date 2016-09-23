@@ -109,7 +109,7 @@ class TitleScreen(Screen):
                 batch=self.batch)
 
         start_label = pyglet.text.Label(
-                'Press [ENTER] to start',
+                'Press any key to start',
                 font_name='Times New Roman',
                 font_size=16,
                 x=window.width//2, y=window.height//2 - 60,
@@ -117,7 +117,7 @@ class TitleScreen(Screen):
                 batch=self.batch)
 
     def update(self, dt):
-        if keys[key.ENTER]:
+        if True in keys.values():
             self.set_screen(GameScreen)
         
 
