@@ -167,6 +167,9 @@ class GameScreen(Screen):
         self.left_paddle.set_position(paddle_offset, window.height//2)
         self.right_paddle.set_position(window.width-paddle_offset-self.right_paddle.sprite.width , window.height//2)
 
+        self.left_score_label.text = str(self.left_score)
+        self.right_score_label.text = str(self.right_score)
+
     def update(self, dt):
         self.ball.update()
         self.left_paddle.update(self.ball, self.top_wall, self.bottom_wall)
@@ -176,9 +179,10 @@ class GameScreen(Screen):
         
         # Ball goes off screen
         if self.ball.x < 0:
-            # TODO score for rightside player here
+            self.right_score += 1
             self.reset()
         elif self.ball.x > window.width:
+            self.left_score += 1
             self.reset()
    
  
