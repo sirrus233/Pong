@@ -188,6 +188,7 @@ class GameScreen(Screen):
  
 # Window and game setup
 window = pyglet.window.Window(width=1024, height=768)
+window.set_exclusive_mouse()
 keys = key.KeyStateHandler()
 AssetManager.load()
 
