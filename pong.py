@@ -134,6 +134,25 @@ class GameScreen(Screen):
 
         self.top_wall.set_position(0, window.height-self.top_wall.sprite.height)
         self.bottom_wall.set_position(0, 0)
+        
+        self.left_score = 0
+        self.right_score = 0
+        
+        self.left_score_label = pyglet.text.Label(
+                str(self.left_score),
+                font_name='Times New Roman',
+                font_size=25,
+                x=window.width//2 - 40, y=window.height - 50,
+                anchor_x='center', anchor_y='center',
+                batch=self.batch)
+
+        self.right_score_label = pyglet.text.Label(
+                str(self.right_score),
+                font_name='Times New Roman',
+                font_size=25,
+                x=window.width//2 + 40, y=window.height - 50,
+                anchor_x='center', anchor_y='center',
+                batch=self.batch)
 
         self.reset()
 
