@@ -132,18 +132,21 @@ class GameScreen(Screen):
         self.top_wall = Wall(self.batch)
         self.bottom_wall = Wall(self.batch)
 
+        self.top_wall.set_position(0, window.height-self.top_wall.sprite.height)
+        self.bottom_wall.set_position(0, 0)
+
+        self.reset()
+
+    def reset(self):
         # Game object initialization
         self.ball.set_position(window.width//2, window.height//2)
         self.ball.velocity.speed = 5
         self.ball.velocity.direction = math.pi/4
         self.ball.acceleration = 1
-    
+
         paddle_offset = 20
         self.left_paddle.set_position(paddle_offset, window.height//2)
         self.right_paddle.set_position(window.width-paddle_offset-self.right_paddle.sprite.width , window.height//2)
-    
-        self.top_wall.set_position(0, window.height-self.top_wall.sprite.height)
-        self.bottom_wall.set_position(0, 0)
 
     def update(self, dt):
         self.ball.update()
@@ -151,7 +154,15 @@ class GameScreen(Screen):
         self.right_paddle.update(self.ball, self.top_wall, self.bottom_wall)
         self.top_wall.update(self.ball)
         self.bottom_wall.update(self.ball)
-    
+        
+        # Ball goes off screen
+        if self.ball.x < 0:
+            # TODO score for rightside player here
+            self.reset()
+        elif self.ball.x > window.width:
+            self.reset()
+   
+ 
 # Window and game setup
 window = pyglet.window.Window(width=1024, height=768)
 keys = key.KeyStateHandler()
