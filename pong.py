@@ -6,7 +6,7 @@ class GameObject:
     def set_position(self, x, y):
         self.x = x
         self.y = y
-        self.sprite.set_position(x, y)
+        self.sprite.update(x, y)
 
     def collision(self, obj):
         self_right = self.x + self.sprite.width
