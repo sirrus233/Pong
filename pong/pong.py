@@ -66,14 +66,14 @@ class AssetManager:
     textures = dict()
 
     def load():
-        AssetManager.textures["BALL"] = pyglet.image.load("ball.png").get_texture()
+        AssetManager.textures["BALL"] = pyglet.image.load("assets/ball.png").get_texture()
 
-        bar_img = pyglet.image.load("bar.png")
+        bar_img = pyglet.image.load("assets/bar.png")
         bar_img.width = 25
         bar_img.height = 120
         AssetManager.textures["BAR"] = bar_img.get_texture()
 
-        wall_img = pyglet.image.load("bar.png")
+        wall_img = pyglet.image.load("assets/bar.png")
         wall_img.width = window.width 
         wall_img.height = 20
         AssetManager.textures["WALL"] = wall_img.get_texture()
