@@ -1,0 +1,31 @@
+[[package]]
+category = "main"
+description = "Clean single-source support for Python 3 and 2"
+name = "future"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.18.2"
+
+[[package]]
+category = "main"
+description = "Cross-platform windowing and multimedia library"
+name = "pyglet"
+optional = false
+python-versions = "*"
+version = "1.4.8"
+
+[package.dependencies]
+future = "*"
+
+[metadata]
+content-hash = "ddc5b3067aac35029b2d2050d23f9591e702adf061bb83f4806a2b8b7441a04d"
+python-versions = "^3.8"
+
+[metadata.files]
+future = [
+    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
+]
+pyglet = [
+    {file = "pyglet-1.4.8-py2.py3-none-any.whl", hash = "sha256:b333c6485a3248b4d914dbd95c32796dfccecd54c0a1b399f4ec9428ba6d5d73"},
+    {file = "pyglet-1.4.8.zip", hash = "sha256:9c7fd49296d8d61be972335f4e989922c90ea40f2d4b51642db29ee7a8adc65c"},
+]
