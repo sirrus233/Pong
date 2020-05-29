@@ -1,7 +1,8 @@
+import math
 from typing import Dict
+
 import pyglet
 from pyglet.window import key
-import math
 
 
 class GameObject:
@@ -20,7 +21,12 @@ class GameObject:
         obj_top = obj.y + obj.sprite.height
         obj_bottom = obj.y
 
-        separate = self_right < obj_left or self_left > obj_right or self_top < obj_bottom or self_bottom > obj_top
+        separate = (
+            self_right < obj_left
+            or self_left > obj_right
+            or self_top < obj_bottom
+            or self_bottom > obj_top
+        )
         return not separate
 
 
@@ -74,7 +80,9 @@ class AssetManager:
 
     @staticmethod
     def load():
-        AssetManager.textures["BALL"] = pyglet.image.load("assets/ball.png").get_texture()
+        AssetManager.textures["BALL"] = pyglet.image.load(
+            "assets/ball.png"
+        ).get_texture()
 
         bar_img = pyglet.image.load("assets/bar.png")
         bar_img.width = 25
@@ -188,7 +196,8 @@ class GameScreen(Screen):
         paddle_offset = 20
         self.left_paddle.set_position(paddle_offset, window.height // 2)
         self.right_paddle.set_position(
-            window.width - paddle_offset - self.right_paddle.sprite.width, window.height // 2
+            window.width - paddle_offset - self.right_paddle.sprite.width,
+            window.height // 2,
         )
 
         self.left_score_label.text = str(self.left_score)
